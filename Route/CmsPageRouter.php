@@ -84,6 +84,7 @@ class CmsPageRouter implements ChainedRouterInterface
 
     /**
      * {@inheritdoc}
+     * @param string|\stdClass|\PHPUnit_Framework_MockObject_MockObject $name
      */
     public function supports($name)
     {
@@ -100,6 +101,7 @@ class CmsPageRouter implements ChainedRouterInterface
 
     /**
      * {@inheritdoc}
+     * @param array $parameters
      */
     public function generate($name, $parameters = array(), $absolute = false)
     {
@@ -259,7 +261,7 @@ class CmsPageRouter implements ChainedRouterInterface
      *
      * @param string $alias
      *
-     * @return \Sonata\PageBundle\Model\PageInterface|null
+     * @return PageInterface
      *
      * @throws PageNotFoundException
      */
@@ -276,7 +278,7 @@ class CmsPageRouter implements ChainedRouterInterface
      *
      * @param PageInterface $page
      *
-     * @return string
+     * @return integer|string
      */
     protected function getUrlFromPage(PageInterface $page)
     {
